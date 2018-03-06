@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+  <class>TMainWindow</class>
+  <widget class="QMainWindow" name="TMainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1080</width>
+        <height>720</height>
+      </rect>
+    </property>
+    <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+      </sizepolicy>
+    </property>
+    <property name="minimumSize">
+      <size>
+        <width>500</width>
+        <height>410</height>
+      </size>
+    </property>
+    <property name="windowTitle">
+      <string>TMainWindow</string>
+    </property>
+    <widget class="QWidget" name="centralWidget">
+      <property name="enabled">
+        <bool>true</bool>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+          <widget class="QGraphicsView" name="graphicsView">
+            <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="renderHints">
+              <set>QPainter::Antialiasing|QPainter::TextAntialiasing</set>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+            <property name="spacing">
+              <number>6</number>
+            </property>
+            <property name="sizeConstraint">
+              <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <item>
+              <widget class="QGroupBox" name="selectViewBox">
+                <property name="enabled">
+                  <bool>true</bool>
+                </property>
+                <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                  <size>
+                    <width>164</width>
+                    <height>160</height>
+                  </size>
+                </property>
+                <property name="maximumSize">
+                  <size>
+                    <width>164</width>
+                    <height>16777215</height>
+                  </size>
+                </property>
+                <property name="title">
+                  <string>Select View</string>
+                </property>
+                <widget class="QRadioButton" name="axialDiagramButton">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>52</y>
+                      <width>114</width>
+                      <height>17</height>
+                    </rect>
+                  </property>
+                  <property name="text">
+                    <string>Axial Load Diagram</string>
+                  </property>
+                </widget>
+                <widget class="QRadioButton" name="shearDiagramButton">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>78</y>
+                      <width>119</width>
+                      <height>17</height>
+                    </rect>
+                  </property>
+                  <property name="text">
+                    <string>Shear Load Diagram</string>
+                  </property>
+                </widget>
+                <widget class="QRadioButton" name="bendingMomentDiagramButton">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>104</y>
+                      <width>144</width>
+                      <height>17</height>
+                    </rect>
+                  </property>
+                  <property name="text">
+                    <string>Bending Moment Diagram</string>
+                  </property>
+                </widget>
+                <widget class="QRadioButton" name="appliedLoadsButton">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>26</y>
+                      <width>89</width>
+                      <height>17</height>
+                    </rect>
+                  </property>
+                  <property name="text">
+                    <string>Applied Loads</string>
+                  </property>
+                </widget>
+                <widget class="QRadioButton" name="displacementButton">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>130</y>
+                      <width>134</width>
+                      <height>17</height>
+                    </rect>
+                  </property>
+                  <property name="text">
+                    <string>Structure Displacement</string>
+                  </property>
+                </widget>
+              </widget>
+            </item>
+            <item>
+              <widget class="QGroupBox" name="viewPropertiesBox">
+                <property name="minimumSize">
+                  <size>
+                    <width>164</width>
+                    <height>158</height>
+                  </size>
+                </property>
+                <property name="maximumSize">
+                  <size>
+                    <width>164</width>
+                    <height>16777215</height>
+                  </size>
+                </property>
+                <property name="title">
+                  <string>View Properties</string>
+                </property>
+                <widget class="QLabel" name="scaleLabel">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>78</y>
+                      <width>51</width>
+                      <height>16</height>
+                    </rect>
+                  </property>
+                  <property name="text">
+                    <string>Load Scale</string>
+                  </property>
+                </widget>
+                <widget class="QLabel" name="zoomLabel">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>23</y>
+                      <width>26</width>
+                      <height>16</height>
+                    </rect>
+                  </property>
+                  <property name="text">
+                    <string>Zoom</string>
+                  </property>
+                </widget>
+                <widget class="QSlider" name="zoomSlider">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>50</y>
+                      <width>141</width>
+                      <height>22</height>
+                    </rect>
+                  </property>
+                  <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                  </property>
+                </widget>
+                <widget class="QSlider" name="scaleSlider">
+                  <property name="geometry">
+                    <rect>
+                      <x>10</x>
+                      <y>105</y>
+                      <width>141</width>
+                      <height>22</height>
+                    </rect>
+                  </property>
+                  <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                  </property>
+                </widget>
+              </widget>
+            </item>
+          </layout>
+        </item>
+      </layout>
+    </widget>
+    <widget class="QDockWidget" name="jsonEditorWidget">
+      <property name="enabled">
+        <bool>true</bool>
+      </property>
+      <property name="font">
+        <font>
+          <pointsize>8</pointsize>
+        </font>
+      </property>
+      <property name="autoFillBackground">
+        <bool>false</bool>
+      </property>
+      <property name="floating">
+        <bool>false</bool>
+      </property>
+      <property name="windowTitle">
+        <string>JSON Editor</string>
+      </property>
+      <attribute name="dockWidgetArea">
+        <number>2</number>
+      </attribute>
+      <widget class="QWidget" name="dockWidgetContents">
+        <layout class="QVBoxLayout" name="dockWidgetLayout">
+          <property name="spacing">
+            <number>6</number>
+          </property>
+          <property name="leftMargin">
+            <number>9</number>
+          </property>
+          <property name="topMargin">
+            <number>9</number>
+          </property>
+          <property name="rightMargin">
+            <number>9</number>
+          </property>
+          <property name="bottomMargin">
+            <number>9</number>
+          </property>
+          <item>
+            <widget class="QPlainTextEdit" name="jsonTextEdit">
+              <property name="font">
+                <font>
+                  <pointsize>10</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                  <underline>false</underline>
+                </font>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="saveChangesButton">
+              <property name="text">
+                <string>Save Changes</string>
+              </property>
+            </widget>
+          </item>
+        </layout>
+      </widget>
+    </widget>
+  </widget>
+  <layoutdefault spacing="6" margin="11"/>
+  <resources/>
+  <connections/>
+</ui>
