@@ -8,7 +8,7 @@ elseif(UNIX)
 endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Qt5 COMPONENTS Core Widgets LinguistTools PrintSupport REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets PrintSupport REQUIRED)
 
 # Find the QtWidgets library
 if(WIN32)
@@ -42,7 +42,7 @@ set(main_SRCS main.cpp ${sources} ${headers} ${commonHeaders}
 ADD_EXECUTABLE(GUI ${main_SRCS} ${MOCSrcs} ${UISrcs} ${RSrcs} ${QMFiles})
 
 TARGET_LINK_LIBRARIES(GUI Qt5::Core Qt5::Widgets Qt5::Gui ${QT_QTMAIN_LIBRARY}
-    ${NEOPZ_LIB} ${PTHREAD_LIB})
+    pz ${PTHREAD_LIB})
 
 if (WIN32)
     add_custom_command(
