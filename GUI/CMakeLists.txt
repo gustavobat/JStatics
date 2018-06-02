@@ -23,44 +23,41 @@ endif()
 QT5_WRAP_UI (UISrcs  TMainWindow.ui)
 QT5_WRAP_CPP(MOCSrcs TMainWindow.h)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-include_directories(../CLI)
+set(main_SRCS main.cpp
+  TLoadGraphics.cpp
+  TLoadGraphics.h
+  TMainWindow.cpp
+  TMainWindow.h
+  TMainWindow.ui
+  TStructureGraphics.cpp
+  TStructureGraphics.h
+  TSupportGraphics.cpp
+  TSupportGraphics.h
+  )
 
-file(GLOB headers *.h *.hpp)
-file(GLOB sources *.cpp)
-file(GLOB data *.json)
+include_directories(${PROJECT_SOURCE_DIR}/lib)
+add_executable(GUI ${main_SRCS} ${MOCSrcs} ${UISrcs})
 
-file (GLOB to_remove_from_sources main.cpp)
-list (REMOVE_ITEM sources ${to_remove_from_sources})
-
-file(GLOB commonHeaders ../*.h)
-file(GLOB commonSources ../*.cpp)
-
-set(main_SRCS main.cpp ${sources} ${headers} ${commonHeaders}
-    ${commonSources} ${data})
-
-ADD_EXECUTABLE(GUI ${main_SRCS} ${MOCSrcs} ${UISrcs} ${RSrcs} ${QMFiles})
-
-TARGET_LINK_LIBRARIES(GUI Qt5::Core Qt5::Widgets Qt5::Gui ${QT_QTMAIN_LIBRARY}
-    pz ${PTHREAD_LIB})
+target_link_libraries(GUI jstatics pz Qt5::Core Qt5::Widgets Qt5::Gui
+  ${QT_QTMAIN_LIBRARY} ${PTHREAD_LIB})
 
 if (WIN32)
-    add_custom_command(
-	TARGET GUI POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<TARGET_FILE:Qt5::Core>
-        $<TARGET_FILE_DIR:GUI>
+  add_custom_command(
+	  TARGET GUI POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    $<TARGET_FILE:Qt5::Core>
+    $<TARGET_FILE_DIR:GUI>
     )
-    add_custom_command(
-        TARGET GUI POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<TARGET_FILE:Qt5::Widgets>
-        $<TARGET_FILE_DIR:GUI>
+  add_custom_command(
+    TARGET GUI POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    $<TARGET_FILE:Qt5::Widgets>
+    $<TARGET_FILE_DIR:GUI>
     )
-    add_custom_command(
-	TARGET GUI POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<TARGET_FILE:Qt5::Gui>
-        $<TARGET_FILE_DIR:GUI>
+  add_custom_command(
+	  TARGET GUI POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    $<TARGET_FILE:Qt5::Gui>
+    $<TARGET_FILE_DIR:GUI>
     )
 endif(WIN32)
