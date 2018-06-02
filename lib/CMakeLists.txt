@@ -1,0 +1,21 @@
+add_library(jstatics
+  json.hpp
+  JSONIntegration.cpp
+  JSONIntegration.h
+  TDistributedLoad.cpp
+  TDistributedLoad.h
+  TElement.cpp
+  TElementEndMoment.cpp
+  TElementEndMoment.h
+  TElement.h
+  TMaterial.cpp
+  TMaterial.h
+  TNodalLoad.cpp
+  TNodalLoad.h
+  TNode.cpp
+  TNode.h
+  TStructure.cpp
+  TStructure.h
+  TSupport.cpp
+  TSupport.h
+  )

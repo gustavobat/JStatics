@@ -1,0 +1,64 @@
+{
+  "Nodes": [
+    [ 0.0, 0.0 ],
+    [ 0.0, 3.0 ],
+    [ 4.0, 3.0 ],
+    [ 8.0, 0.0 ]
+  ],
+
+  "Materials": [
+    {
+      "E": 1500000,
+      "A": 0.09,
+      "I": 0.000675
+    },
+    {
+      "E": 1500000,
+      "A": 0.18,
+      "I": 0.00135
+    }
+  ],
+
+  "Supports": [
+    {
+      "Conditions": [ 1, 1, 0 ],
+      "Node": 0
+    },
+    {
+      "Conditions": [ 1, 1, 0 ],
+      "Node": 3    }
+  ],
+
+  "Elements": [
+    {
+      "Nodes": [ 0, 1 ],
+      "Hinges": [ 0, 0 ],
+      "Material": 0
+    },
+    {
+      "Nodes": [ 1, 2 ],
+      "Hinges": [ 0, 0 ],
+      "Material": 1
+    },
+    {
+      "Nodes": [ 2, 3 ],
+      "Hinges": [ 0, 0 ],
+      "Material": 1
+    }
+  ],
+
+  "Distributed Loads": [
+    {
+      "Element": 1,
+      "Load Plane": 1,
+      "Node 0 Load": -1.0,
+      "Node 1 Load": -1.0
+    },
+    {
+      "Element": 2,
+      "Load Plane": 1,
+      "Node 0 Load": -1.0,
+      "Node 1 Load": -1.0
+    }
+  ]
+}
