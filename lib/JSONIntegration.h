@@ -31,9 +31,9 @@ void printJSON(const nlohmann::json& J);
 \param EndMoments the address of the TElementEndMoment vector to be filled.
 */
 void importData(const nlohmann::json &J, TStructure *Parent,
-	std::vector<TNodalLoad> &NodalLoads,
-	std::vector<TDistributedLoad> &DistributedLoads,
-	std::vector<TElementEndMoment> &EndMoments);
+                std::vector<TNodalLoad> &NodalLoads,
+                std::vector<TDistributedLoad> &DistributedLoads,
+                std::vector<TElementEndMoment> &EndMoments);
 
 //! Converts a TMaterial object to JSON.
 /*!

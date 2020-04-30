@@ -20,191 +20,191 @@ class TLabel : public QGraphicsItem
 {
 public:
 
-	// Default constructor.
-	TLabel(QString Message, QPointF Position, int Size, QPen Pen = QPen(Qt::black));
-	// Destructor.
-	~TLabel();
+    // Default constructor.
+    TLabel(QString Message, QPointF Position, int Size, QPen Pen = QPen(Qt::black));
+    // Destructor.
+    ~TLabel();
 
-	// Painter function.
-	void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
-		QWidget *Widget) override;
+    // Painter function.
+    void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
+               QWidget *Widget) override;
 
-	// Bounding rectangle function.
-	QRectF boundingRect() const override;
+    // Bounding rectangle function.
+    QRectF boundingRect() const override;
 
 private:
-	QString fMessage;
-	QPointF fPosition;
-	QFont fFont;
-	QPen fPen;
+    QString fMessage;
+    QPointF fPosition;
+    QFont fFont;
+    QPen fPen;
 };
 
 // Declaration of TLoadArrow class.
 class TLoadArrow : public QGraphicsItem {
 public:
-	enum ArrowStyle {
-		Nodal = 0,
-		Reaction = 1,
-		Distributed = 2
-	};
+    enum ArrowStyle {
+        Nodal = 0,
+        Reaction = 1,
+        Distributed = 2
+    };
 
-	// Default constructor.
-	TLoadArrow(const QPointF ReferencePoint, qreal ArrowLength,
-		qreal TabLength, qreal Angle, ArrowStyle Style);
-	// Copy constructor.
-	TLoadArrow(const TLoadArrow& Other);
-	// Destructor.
-	~TLoadArrow();
+    // Default constructor.
+    TLoadArrow(const QPointF ReferencePoint, qreal ArrowLength,
+               qreal TabLength, qreal Angle, ArrowStyle Style);
+    // Copy constructor.
+    TLoadArrow(const TLoadArrow& Other);
+    // Destructor.
+    ~TLoadArrow();
 
-	// Painter function.
-	void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
-		QWidget *Widget) override;
+    // Painter function.
+    void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
+               QWidget *Widget) override;
 
-	// Bounding rectangle function.
-	QRectF boundingRect() const override;
+    // Bounding rectangle function.
+    QRectF boundingRect() const override;
 
-	// Assignment operator.
-	TLoadArrow& operator=(const TLoadArrow& Other);
+    // Assignment operator.
+    TLoadArrow& operator=(const TLoadArrow& Other);
 
-	// getArrowLength - returns the length of the arrow.
-	int getArrowLength();
+    // getArrowLength - returns the length of the arrow.
+    int getArrowLength();
 
 private:
-	QPointF fReferencePoint;
-	qreal fArrowLength;
-	qreal fTabLength;
-	qreal fAngle;
-	ArrowStyle fArrowStyle;
+    QPointF fReferencePoint;
+    qreal fArrowLength;
+    qreal fTabLength;
+    qreal fAngle;
+    ArrowStyle fArrowStyle;
 };
 
 // Declaration of TMomentArrow class.
 class TMomentArrow : public QGraphicsItem {
 public:
-	enum ArrowStyle {
-		Nodal = 0,
-		Reaction = 1
-	};
+    enum ArrowStyle {
+        Nodal = 0,
+        Reaction = 1
+    };
 
-	// Default constructor.
-	TMomentArrow(const QPointF ReferencePoint, int ArcRadius, double ArcStartAngle,
-		double ArcSpanAngle, int TabLength, ArrowStyle Style);
-	// Destructor.
-	~TMomentArrow();
+    // Default constructor.
+    TMomentArrow(const QPointF ReferencePoint, int ArcRadius, double ArcStartAngle,
+                 double ArcSpanAngle, int TabLength, ArrowStyle Style);
+    // Destructor.
+    ~TMomentArrow();
 
-	// Painter function.
-	void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
-		QWidget *Widget) override;
+    // Painter function.
+    void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
+               QWidget *Widget) override;
 
-	// Bounding rectangle function.
-	QRectF boundingRect() const override;
+    // Bounding rectangle function.
+    QRectF boundingRect() const override;
 
 private:
-	QPointF fReferencePoint;
-	int fArcRadius;
-	double fArcStartAngle;
-	double fArcSpanAngle;
-	int fTabLength;
-	ArrowStyle fArrowStyle;
+    QPointF fReferencePoint;
+    int fArcRadius;
+    double fArcStartAngle;
+    double fArcSpanAngle;
+    int fTabLength;
+    ArrowStyle fArrowStyle;
 };
 
 // Declaration of TNodalLoadGraphics class.
 class TNodalLoadGraphics : public QGraphicsItem {
 public:
-	enum LoadType {
-		Fx = 0,
-		Fy = 1,
-		M = 2
-	};
-	// Default constructor.
-	TNodalLoadGraphics(QPointF LoadPosition, LoadType Type, bool Orientation);
-	// Destructor.
-	~TNodalLoadGraphics();
+    enum LoadType {
+        Fx = 0,
+        Fy = 1,
+        M = 2
+    };
+    // Default constructor.
+    TNodalLoadGraphics(QPointF LoadPosition, LoadType Type, bool Orientation);
+    // Destructor.
+    ~TNodalLoadGraphics();
 
-	// Bounding rectangle function.
-	QRectF boundingRect() const override;
+    // Bounding rectangle function.
+    QRectF boundingRect() const override;
 
-	// Painter function.
-	void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
-		QWidget *Widget) override;
+    // Painter function.
+    void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
+               QWidget *Widget) override;
 
 private:
-	QPointF fLoadPosition;
-	LoadType fLoadType;
-	QGraphicsItem *fNodalLoad;
+    QPointF fLoadPosition;
+    LoadType fLoadType;
+    QGraphicsItem *fNodalLoad;
 };
 
 // Declaration of TReactionLoadGraphics class.
 class TReactionLoadGraphics : public QGraphicsItem {
 public:
-	enum LoadType {
-		Fx = 0,
-		Fy = 1,
-		M = 2
-	};
-	// Default constructor.
-	TReactionLoadGraphics(QPointF LoadPosition, LoadType Type, bool Orientation);
-	// Destructor.
-	~TReactionLoadGraphics();
+    enum LoadType {
+        Fx = 0,
+        Fy = 1,
+        M = 2
+    };
+    // Default constructor.
+    TReactionLoadGraphics(QPointF LoadPosition, LoadType Type, bool Orientation);
+    // Destructor.
+    ~TReactionLoadGraphics();
 
-	// Bounding rectangle function.
-	QRectF boundingRect() const override;
+    // Bounding rectangle function.
+    QRectF boundingRect() const override;
 
-	// Painter function.
-	void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
-		QWidget *Widget) override;
+    // Painter function.
+    void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
+               QWidget *Widget) override;
 
 private:
-	QPointF fLoadPosition;
-	LoadType fLoadType;
-	QGraphicsItem *fNodalLoad;
+    QPointF fLoadPosition;
+    LoadType fLoadType;
+    QGraphicsItem *fNodalLoad;
 };
 
 // Declaration of TDistributedLoadGraphics class.
 class TDistributedLoadGraphics : public QGraphicsItem {
 public:
-	// Default constructor.
-	TDistributedLoadGraphics(TDistributedLoad * DistributedLoad, QPointF StartPoint, QPointF EndPoint, qreal ScalingFactor);
-	// Destructor.
-	~TDistributedLoadGraphics();
+    // Default constructor.
+    TDistributedLoadGraphics(TDistributedLoad * DistributedLoad, QPointF StartPoint, QPointF EndPoint, qreal ScalingFactor);
+    // Destructor.
+    ~TDistributedLoadGraphics();
 
-	// Bounding rectangle function.
-	QRectF boundingRect() const override;
+    // Bounding rectangle function.
+    QRectF boundingRect() const override;
 
-	// Painter function.
-	void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
-		QWidget *Widget) override;
+    // Painter function.
+    void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
+               QWidget *Widget) override;
 
 private:
-	bool fLoadPlane;
-	QPointF fStartPoint;
-	QPointF fEndPoint;
-	std::vector<TLoadArrow *> fDistributedLoad;
+    bool fLoadPlane;
+    QPointF fStartPoint;
+    QPointF fEndPoint;
+    std::vector<TLoadArrow *> fDistributedLoad;
 };
 
 // Declaration of TDiagramLoadGraphics class.
 class TDiagramLoadGraphics : public QGraphicsItem {
 public:
-	// Default constructor.
-	TDiagramLoadGraphics(QPointF StartPoint, QPointF EndPoint, double *Coefficients, qreal LoadScale);
-	// Destructor.
-	~TDiagramLoadGraphics();
+    // Default constructor.
+    TDiagramLoadGraphics(QPointF StartPoint, QPointF EndPoint, const double *Coefficients, qreal LoadScale);
+    // Destructor.
+    ~TDiagramLoadGraphics();
 
-	// Bounding rectangle function.
-	QRectF boundingRect() const override;
+    // Bounding rectangle function.
+    QRectF boundingRect() const override;
 
-	// Painter function.
-	void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
-		QWidget *Widget) override;
+    // Painter function.
+    void paint(QPainter *Painter, const QStyleOptionGraphicsItem *Option,
+               QWidget *Widget) override;
 
-	// Evaluates the cubic function.
-	qreal eval(qreal u);
+    // Evaluates the cubic function.
+    qreal eval(qreal u);
 
 private:
-	QPointF fStartPoint;
-	QPointF fEndPoint;
-	double fCoefficients[4];
-	QPainterPath fCurve;
-	qreal fUScale;
+    QPointF fStartPoint;
+    QPointF fEndPoint;
+    double fCoefficients[4];
+    QPainterPath fCurve;
+    qreal fUScale;
 };
 
 #endif // TLOADGRAPHICS_H

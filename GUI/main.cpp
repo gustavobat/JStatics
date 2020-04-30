@@ -10,11 +10,11 @@ using json = nlohmann::json;
 
 int main(int argc, char *argv[])
 {
-	// Starts application and initializes the TMainWindow object.
-	QApplication app(argc, argv);
+    // Starts application and initializes the TMainWindow object.
+    QApplication app(argc, argv);
 
-	TMainWindow mainWindow;
-	mainWindow.show();
+    TMainWindow mainWindow;
+    mainWindow.show();
 
-	return app.exec();
+    return QApplication::exec();
 }

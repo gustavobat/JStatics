@@ -18,72 +18,72 @@ class TStructure;
 */
 class TNode {
 public:
-	//! Default constructor.
-	/*!
-	\param X the x coordinate of the node.
-	\param Y the y coordinate of the node.
-	\return the new TNode object.
-	*/
-	TNode(double X = 0, double Y = 0);
+    //! Default constructor.
+    /*!
+    \param X the x coordinate of the node.
+    \param Y the y coordinate of the node.
+    \return the new TNode object.
+    */
+    TNode(double X = 0, double Y = 0);
 
-	//! Copy constructor.
-	/*!
-	\param Other the TNode object to be copied.
-	\return the new TNode object.
-	*/
-	TNode(const TNode& Other);
+    //! Copy constructor.
+    /*!
+    \param Other the TNode object to be copied.
+    \return the new TNode object.
+    */
+    TNode(const TNode& Other);
 
-	//! Destructor.
-	~TNode();
+    //! Destructor.
+    ~TNode();
 
-	//! Assignment operator.
-	/*!
-	\param Other the TNode object to be copied.
-	\return the modified TNode object.
-	*/
-	TNode& operator=(const TNode& Other);
+    //! Assignment operator.
+    /*!
+    \param Other the TNode object to be copied.
+    \return the modified TNode object.
+    */
+    TNode& operator=(const TNode& Other);
 
-	//! Gets the node x coordinate.
-	/*!
-	\return the x coordinate of the node.
-	*/
-	double getX() const;
+    //! Gets the node x coordinate.
+    /*!
+    \return the x coordinate of the node.
+    */
+    double getX() const;
 
-	//! Gets the node y coordinate.
-	/*!
-	\return the y coordinate of the node.
-	*/
-	double getY() const;
+    //! Gets the node y coordinate.
+    /*!
+    \return the y coordinate of the node.
+    */
+    double getY() const;
 
-	//! Gets the array of coordinates of the node.
-	/*!
-	\return the array of node coordinates
-	*/
-	double* const getCoord();
+    //! Gets the array of coordinates of the node.
+    /*!
+    \return the array of node coordinates
+    */
+    double* const getCoord();
 
-	//! Modifies the node x coordinate.
-	/*!
-	\param X the new x coordinate.
-	*/
-	void setX(double X);
-	//! Modifies the node y coordinate.
-	/*!
-	\param Y the new y coordinate.
-	*/
-	void setY(double Y);
+    //! Modifies the node x coordinate.
+    /*!
+    \param X the new x coordinate.
+    */
+    void setX(double X);
+    //! Modifies the node y coordinate.
+    /*!
+    \param Y the new y coordinate.
+    */
+    void setY(double Y);
 
-	//! Modifies the array of coordinates of the node.
-	/*!
-	\param Coordinates the new array of coordinates.
-	*/
-	void setCoord(double* Coordinates);
+    //! Modifies the array of coordinates of the node.
+    /*!
+    \param Coordinates the new array of coordinates.
+    */
+    void setCoord(double* Coordinates);
 
-	//! Prints the node information to std::cout.
-	void print();
+    //! Prints the node information to std::cout.
+    void print();
 
 private:
-	//! The array that stores the node coordinates.
-	double fCoordinates[2];
+    //! The array that stores the node coordinates.
+    double fCoordinates[2];
 };
 
 #endif // TNODE_H
