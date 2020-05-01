@@ -186,7 +186,7 @@ void from_json(const nlohmann::json& J, TNode& N)
 //! Converts a TSupport object to JSON.
 void to_json(nlohmann::json& J, const TSupport& S)
 {
-    J = nlohmann::json{ { "Conditions",{ S.getFx(), S.getFy(), S.getM() } },
+    J = nlohmann::json{ { "Conditions",{S.RestrictsFx(), S.RestrictsFy(), S.RestrictsM() } },
                         { "Node", S.getNodeID() } };
 }
 

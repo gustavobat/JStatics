@@ -132,7 +132,7 @@ int TStructure::getNDOF() const
 
     // Counts the number of constrained rotation DOF.
     for (int i = 0; i < (int)fSupports.size(); i++) {
-        if (fSupports[i].getM() == true) {
+        if (fSupports[i].RestrictsM() == true) {
             aux[fSupports[i].getNodeID()] = true;
             NDOF++;
         }
@@ -180,13 +180,13 @@ int TStructure::getCDOF() const
     int CDOF = 0;
     // Counts the number of constrained DOF.
     for (int i = 0; i < (int)fSupports.size(); i++) {
-        if (fSupports[i].getFx() == true) {
+        if (fSupports[i].RestrictsFx() == true) {
             CDOF++;
         }
-        if (fSupports[i].getFy() == true) {
+        if (fSupports[i].RestrictsFy() == true) {
             CDOF++;
         }
-        if (fSupports[i].getM() == true) {
+        if (fSupports[i].RestrictsM() == true) {
             CDOF++;
         }
     }
@@ -210,15 +210,15 @@ void TStructure::enumerateEquations()
 
     // Enumerates the constrained DOF.
     for (int i = 0; i < (int)fSupports.size(); i++) {
-        if (fSupports[i].getFx() == true) {
+        if (fSupports[i].RestrictsFx() == true) {
             equations(fSupports[i].getNodeID(), 0) = count;
             count++;
         }
-        if (fSupports[i].getFy() == true) {
+        if (fSupports[i].RestrictsFy() == true) {
             equations(fSupports[i].getNodeID(), 1) = count;
             count++;
         }
-        if (fSupports[i].getM() == true) {
+        if (fSupports[i].RestrictsM() == true) {
             equations(fSupports[i].getNodeID(), 2) = count;
             count++;
         }

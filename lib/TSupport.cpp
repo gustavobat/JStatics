@@ -25,7 +25,7 @@ TSupport::TSupport(const TSupport& Other) {
 }
 
 //! Destructor.
-TSupport::~TSupport() {}
+TSupport::~TSupport() = default;
 
 //! Assignment operator.
 TSupport& TSupport::operator=(const TSupport& Other) {
@@ -40,22 +40,22 @@ TSupport& TSupport::operator=(const TSupport& Other) {
 }
 
 //! Gets the Fx support condition.
-bool TSupport::getFx() const {
+bool TSupport::RestrictsFx() const {
     return fConditions[0];
 }
 
 //! Gets the Fy support condition.
-bool TSupport::getFy() const {
+bool TSupport::RestrictsFy() const {
     return fConditions[1];
 }
 
 //! Gets the M support condition.
-bool TSupport::getM() const {
+bool TSupport::RestrictsM() const {
     return fConditions[2];
 }
 
 //! Gets the array of support conditions.
-bool* const TSupport::getConditions() {
+bool* TSupport::getConditions() {
     return fConditions;
 }
 

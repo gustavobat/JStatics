@@ -16,7 +16,6 @@
 
 class QAction;
 class QMenu;
-class QPlainTextEdit;
 
 namespace Ui {
 class TMainWindow;
@@ -26,8 +25,8 @@ class TMainWindow : public QMainWindow {
 Q_OBJECT
 
 public:
-    explicit TMainWindow(QWidget *parent = 0);
-    ~TMainWindow();
+    explicit TMainWindow(QWidget *parent = nullptr);
+    ~TMainWindow() final;
     void loadFile(const QString &fileName);
 
 protected:
@@ -60,14 +59,17 @@ private:
     Ui::TMainWindow *fUi;
     QString fCurFile;
 
-    TStructure *fStructure;
-    std::vector<TNodalLoad> *fNodalLoads;
-    std::vector<TDistributedLoad> *fDistributedLoads;
-    std::vector<TElementEndMoment> *fEndMoments;
-    std::vector<TPZFMatrix<double>> * fInternalLoads;
-    TPZFMatrix<double> *fDisplacementVector;
+    TStructure *fStructure{};
+    std::vector<TNodalLoad> *fNodalLoads{};
+    std::vector<TDistributedLoad> *fDistributedLoads{};
+    std::vector<TElementEndMoment> *fEndMoments{};
+    std::vector<TPZFMatrix<double>> * fInternalLoads{};
+    TPZFMatrix<double> *fDisplacementVector{};
 
-    TStructureGraphics *fStructureGraphics;
+    TStructureGraphics *fStructureGraphics{};
+    double fDefaultDrawingSize;
+    double fLoadDrawingScales[5]{};
+    double fSavedDrawingSizes[5]{};
     QGraphicsScene *fAppliedLoads;
     QGraphicsScene *fAxialForceDiagram;
     QGraphicsScene *fShearForceDiagram;
@@ -83,11 +85,12 @@ private:
     QString strippedName(const QString& fullFileName);
 
     void drawReactions(QGraphicsScene *Scene);
-    void populateAppliedLoadsScene(qreal LoadScale);
-    void populateAxialForceDiagramScene(qreal LoadScale);
-    void populateShearForceDiagramScene(qreal LoadScale);
-    void populateBendingMomentDiagramScene(qreal LoadScale);
-    void populateDisplacement(qreal DisplacementScale);
+    void initializeLoadScales();
+    void populateAppliedLoadsScene(double drawingSize);
+    void populateAxialForceDiagramScene(double drawingSize);
+    void populateShearForceDiagramScene(double drawingSize);
+    void populateBendingMomentDiagramScene(double drawingSize);
+    void populateDisplacement(double drawingSize);
 };
 
 #endif // TMAINWINDOW_H

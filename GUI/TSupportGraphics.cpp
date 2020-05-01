@@ -23,9 +23,9 @@ TSupportGraphics::TSupportGraphics(TStructureGraphics* StructureGraphics) {
                               (*nodeCoordinates)(supports[i].getNodeID(), 1));
 
         // Checks the type of support and redirects to the proper drawing function.
-        if (supports[i].getFx() == true) {
-            if (supports[i].getFy() == true) {
-                if (supports[i].getM() == true) {
+        if (supports[i].RestrictsFx() == true) {
+            if (supports[i].RestrictsFy() == true) {
+                if (supports[i].RestrictsM() == true) {
                     fSupportGraphics.push_back(new T111Support(referencePoint, fSupportSize));
                 }
                 else {
@@ -33,7 +33,7 @@ TSupportGraphics::TSupportGraphics(TStructureGraphics* StructureGraphics) {
                 }
             }
             else {
-                if (supports[i].getM() == true) {
+                if (supports[i].RestrictsM() == true) {
                     fSupportGraphics.push_back(new T101Support(referencePoint, fSupportSize, fHingeRadius));
                 }
                 else {
@@ -42,8 +42,8 @@ TSupportGraphics::TSupportGraphics(TStructureGraphics* StructureGraphics) {
             }
         }
         else {
-            if (supports[i].getFy() == true) {
-                if (supports[i].getM() == true) {
+            if (supports[i].RestrictsFy() == true) {
+                if (supports[i].RestrictsM() == true) {
                     fSupportGraphics.push_back(new T011Support(referencePoint, fSupportSize, fHingeRadius));
                 }
                 else {
@@ -51,7 +51,7 @@ TSupportGraphics::TSupportGraphics(TStructureGraphics* StructureGraphics) {
                 }
             }
             else {
-                if (supports[i].getM() == true) {
+                if (supports[i].RestrictsM() == true) {
                     fSupportGraphics.push_back(new T001Support(referencePoint, fSupportSize));
                 }
             }

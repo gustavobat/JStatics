@@ -54,25 +54,25 @@ public:
     /*!
     \return the Fx support condition: fixed (true) or free (false).
     */
-    bool getFx() const;
+    bool RestrictsFx() const;
 
     //! Gets the Fy support condition.
     /*!
     \return the Fy support condition: fixed (true) or free (false).
     */
-    bool getFy() const;
+    bool RestrictsFy() const;
 
     //! Gets the M support condition.
     /*!
     \return the M support condition: fixed (true) or free (false).
     */
-    bool getM() const;
+    bool RestrictsM() const;
 
     //! Gets the array of support conditions.
     /*!
     \return the array of support conditions.
     */
-    bool *const getConditions();
+    bool *getConditions();
 
     //! Gets the node of the support.
     /*!
